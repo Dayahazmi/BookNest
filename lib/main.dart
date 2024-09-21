@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import 'package:booknest_fe/screen/splashscreen.dart';
-=======
-import 'package:booknest/splash_screen/splash.dart';
->>>>>>> e529e2616875b626c678795e88ebf1fb14b49708
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,12 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-<<<<<<< HEAD
       debugShowCheckedModeBanner: false,
       home: Splashscreen(),
     );
-=======
-        debugShowCheckedModeBanner: false, home: SplashScreen());
->>>>>>> e529e2616875b626c678795e88ebf1fb14b49708
   }
 }
