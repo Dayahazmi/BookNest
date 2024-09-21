@@ -1,10 +1,18 @@
 # Project-level configuration.
 cmake_minimum_required(VERSION 3.14)
+<<<<<<< HEAD
 project(booknest_fe LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
 set(BINARY_NAME "booknest_fe")
+=======
+project(booknest LANGUAGES CXX)
+
+# The name of the executable created for the application. Change this to change
+# the on-disk name of your application.
+set(BINARY_NAME "booknest")
+>>>>>>> e529e2616875b626c678795e88ebf1fb14b49708
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.

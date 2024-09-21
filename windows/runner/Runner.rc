@@ -90,12 +90,21 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
+<<<<<<< HEAD
             VALUE "FileDescription", "booknest_fe" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "booknest_fe" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "booknest_fe.exe" "\0"
             VALUE "ProductName", "booknest_fe" "\0"
+=======
+            VALUE "FileDescription", "booknest" "\0"
+            VALUE "FileVersion", VERSION_AS_STRING "\0"
+            VALUE "InternalName", "booknest" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
+            VALUE "OriginalFilename", "booknest.exe" "\0"
+            VALUE "ProductName", "booknest" "\0"
+>>>>>>> e529e2616875b626c678795e88ebf1fb14b49708
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
