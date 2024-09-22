@@ -1,12 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-<<<<<<< HEAD
 <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:label="booknest_fe"
-=======
-    <application
-        android:label="booknest"
->>>>>>> e529e2616875b626c678795e88ebf1fb14b49708
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

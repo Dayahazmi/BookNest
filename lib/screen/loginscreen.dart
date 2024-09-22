@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'package:booknest_fe/screen/homescreen.dart';
 import 'package:booknest_fe/screen/registration.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,30 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController name = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  User? user;
+
+  @override
+  void initState() {
+    super.initState();
+    _auth.authStateChanges().listen((event) {
+      setState(() {
+        user = event;
+      });
+    });
+  }
+
+  void _handleGoogleSignIn() {
+    try {
+      GoogleAuthProvider _googleAuthProvider = GoogleAuthProvider();
+      _auth.signInWithProvider(_googleAuthProvider);
+    } catch (error) {
+      if (kDebugMode) {
+        print(error);
+      }
+    }
+  }
 
   Future<void> login() async {
     var url = Uri.parse('http://192.168.1.109:3000/auth/login');
@@ -228,6 +253,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontWeight: FontWeight.normal,
                 color: Colors.white),
           ),
+          const SizedBox(height: 15),
+          GestureDetector(
+            onTap: () {
+              _handleGoogleSignIn();
+            },
+            child: SizedBox(
+              height: 40,
+              width: 40,
+              child: Image.asset('assets/Google.png'),
+            ),
+          )
         ],
       ))),
     );
