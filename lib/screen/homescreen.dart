@@ -33,28 +33,19 @@ class _RootScreenState extends State<RootScreen> {
 
     try {
       final response = await http.post(
-          Uri.parse("http://192.168.1.109:3000/book/BookCount"),
+          Uri.parse("http://192.168.1.111:3000/book/BookCount"),
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer $token'
           });
 
-      if (kDebugMode) {
-        print('response.body : ${response.body}');
-      }
-
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         final int count = data['count'] ?? 0;
-        if (kDebugMode) {
-          print('Book Count: $count');
-        }
+
         setState(() {
           bookCount = count;
         });
-        if (kDebugMode) {
-          print('Book Count: ${response.body}');
-        }
       }
     } catch (e) {
       if (kDebugMode) {
@@ -80,7 +71,7 @@ class _RootScreenState extends State<RootScreen> {
 
     try {
       final response = await http.post(
-          Uri.parse("http://192.168.1.109:3000/profile/getProfile"),
+          Uri.parse("http://192.168.1.111:3000/profile/getProfile"),
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer $token'
@@ -101,17 +92,10 @@ class _RootScreenState extends State<RootScreen> {
           setState(() {
             nameUser = name; // Set the user's name from the profile
           });
-          if (kDebugMode) {
-            print('Name: $name');
-          }
         } else {
           if (kDebugMode) {
             print('Name is null in the profile');
           }
-        }
-
-        if (kDebugMode) {
-          print('Profile Data: ${response.body}');
         }
       } else {
         if (kDebugMode) {
@@ -123,6 +107,55 @@ class _RootScreenState extends State<RootScreen> {
         print('Error occurred: $e');
       }
     }
+  }
+
+  Dialog _captureDetailBook(BuildContext context) {
+    return Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
+      ),
+      child: Container(
+          height: 350,
+          padding: const EdgeInsets.all(16),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset('assets/Vector.png', scale: 2.5),
+                const SizedBox(height: 20),
+                Text('Scan your book cover to',
+                    style: GoogleFonts.mulish(
+                        fontSize: 17, fontWeight: FontWeight.w400)),
+                const SizedBox(height: 15),
+                Text(
+                  'start adding it in your Library',
+                  style: GoogleFonts.mulish(
+                      fontSize: 17, fontWeight: FontWeight.w400),
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Color(0xFF175844))),
+                  onPressed: () {},
+                  child: Text('Scan Cover',
+                      style: GoogleFonts.mulish(
+                          fontSize: 17, color: Colors.white)),
+                ),
+                const SizedBox(height: 10),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(
+                    'Skip for now',
+                    style: GoogleFonts.mulish(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        decoration: TextDecoration.underline),
+                  ),
+                ),
+              ])),
+    );
   }
 
   @override
@@ -184,7 +217,14 @@ class _RootScreenState extends State<RootScreen> {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 25, left: 40),
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return _captureDetailBook(context);
+                          },
+                        );
+                      },
                       child: SizedBox(
                         height: 48,
                         width: 48,
