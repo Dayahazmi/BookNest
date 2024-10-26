@@ -168,7 +168,7 @@ class _RootScreenState extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
+        // resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

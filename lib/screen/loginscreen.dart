@@ -191,7 +191,15 @@ class _LoginScreenState extends State<LoginScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: GestureDetector(
               onTap: () {
-                login();
+                Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation1, animation2) =>
+                          const RootScreen(),
+                      transitionDuration: const Duration(seconds: 0),
+                      reverseTransitionDuration: const Duration(seconds: 0),
+                    ),
+                  );
               },
               child: Container(
                 height: 50,
