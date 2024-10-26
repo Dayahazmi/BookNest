@@ -20,7 +20,7 @@ class _RegisScreenState extends State<RegisScreen> {
   TextEditingController password = TextEditingController();
 
   Future<void> registration() async {
-    var url = Uri.parse('http://192.168.1.109:3000/auth/registration');
+    var url = Uri.parse('http://192.168.1.110:598/auth/registration');
 
     try {
       var response = await http.post(

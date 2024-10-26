@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:booknest_fe/screen/libraryscren.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -15,14 +16,36 @@ class RootScreen extends StatefulWidget {
 }
 
 class _RootScreenState extends State<RootScreen> {
-  int selectedIndex = 0;
+  int _selectedIndex = 0;
   int bookCount = 0;
   String nameUser = '';
 
   void _onItemTapped(int index) {
     setState(() {
-      selectedIndex = index;
+      _selectedIndex = index;
     });
+
+    // Navigate to the corresponding page
+    switch (index) {
+      case 0:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const RootScreen()),
+        );
+        break;
+      case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const LibraryScreen()),
+        );
+        break;
+      case 2:
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => const SchoolPage()),
+        // );
+        break;
+    }
   }
 
   Future<void> fetchBook() async {
@@ -665,7 +688,7 @@ class _RootScreenState extends State<RootScreen> {
               label: 'Community',
             )
           ],
-          currentIndex: selectedIndex,
+          currentIndex: _selectedIndex,
           selectedItemColor: const Color(0xFF0A2C22),
           unselectedItemColor: Colors.grey,
           onTap: _onItemTapped,
