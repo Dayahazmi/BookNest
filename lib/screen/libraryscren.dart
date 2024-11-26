@@ -1,4 +1,5 @@
 import 'package:booknest_fe/screen/homescreen.dart';
+import 'package:booknest_fe/widget/searchform.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,25 +11,34 @@ class LibraryScreen extends StatefulWidget {
 }
 
 class _LibraryScreenState extends State<LibraryScreen> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
 
-    // Navigate to the corresponding page
     switch (index) {
       case 0:
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const RootScreen()),
+          PageRouteBuilder(
+            pageBuilder: (context, animation1, animation2) =>
+                const Homescreen(),
+            transitionDuration: const Duration(seconds: 0),
+            reverseTransitionDuration: const Duration(seconds: 0),
+          ),
         );
         break;
       case 1:
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const LibraryScreen()),
+          PageRouteBuilder(
+            pageBuilder: (context, animation1, animation2) =>
+                const LibraryScreen(),
+            transitionDuration: const Duration(seconds: 0),
+            reverseTransitionDuration: const Duration(seconds: 0),
+          ),
         );
         break;
       case 2:
@@ -66,7 +76,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
                 ElevatedButton(
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(Color(0xFF175844))),
+                          WidgetStateProperty.all(const Color(0xFF175844))),
                   onPressed: () {},
                   child: Text('Scan Cover',
                       style: GoogleFonts.mulish(
@@ -162,40 +172,11 @@ class _LibraryScreenState extends State<LibraryScreen> {
               const SizedBox(
                 height: 10,
               ),
+              //search form
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    width: 250,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF7A7A7A),
-                      borderRadius: BorderRadius.circular(28),
-                    ),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const Expanded(
-                              child: TextField(
-                            showCursor: false,
-                            decoration: InputDecoration(
-                              hintText: 'Search Book',
-                              hintStyle: TextStyle(
-                                  color: Colors.white, fontSize: 12.0),
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                            ),
-                            textAlign: TextAlign.left,
-                            textAlignVertical: TextAlignVertical.center,
-                          )),
-                          Icon(
-                            Icons.search,
-                            color: Colors.black54.withOpacity(.6),
-                          ),
-                        ]),
-                  ),
+                  const SearchForm(),
                   Padding(
                     padding: const EdgeInsets.only(right: 8.0),
                     child: Container(

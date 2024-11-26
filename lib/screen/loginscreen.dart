@@ -37,8 +37,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _handleGoogleSignIn() {
     try {
-      GoogleAuthProvider _googleAuthProvider = GoogleAuthProvider();
-      _auth.signInWithProvider(_googleAuthProvider);
+      GoogleAuthProvider googleAuthProvider = GoogleAuthProvider();
+      _auth.signInWithProvider(googleAuthProvider);
     } catch (error) {
       if (kDebugMode) {
         print(error);
@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
           context,
           PageRouteBuilder(
             pageBuilder: (context, animation1, animation2) =>
-                const RootScreen(),
+                const Homescreen(),
             transitionDuration: const Duration(seconds: 0),
             reverseTransitionDuration: const Duration(seconds: 0),
           ),
@@ -191,7 +191,15 @@ class _LoginScreenState extends State<LoginScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: GestureDetector(
               onTap: () {
-                login();
+                Navigator.pushReplacement(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation1, animation2) =>
+                        const Homescreen(),
+                    transitionDuration: const Duration(seconds: 0),
+                    reverseTransitionDuration: const Duration(seconds: 0),
+                  ),
+                );
               },
               child: Container(
                 height: 50,
