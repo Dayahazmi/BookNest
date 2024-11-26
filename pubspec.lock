@@ -448,6 +448,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.15.0"
+<<<<<<< HEAD
   mime:
     dependency: transitive
     description:
@@ -456,6 +457,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+=======
+>>>>>>> c1c2972310f87486f27cea98dee4baf8fe42df37
   path:
     dependency: transitive
     description:

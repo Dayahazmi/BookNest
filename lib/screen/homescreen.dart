@@ -8,8 +8,8 @@ class Homescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        appBar: ResponsiveAppBar(heightFactor: 0.2),
+    return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: SingleChildScrollView(
             child: Center(

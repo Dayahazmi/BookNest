@@ -192,6 +192,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: GestureDetector(
               onTap: () {
                 Navigator.pushReplacement(
+<<<<<<< HEAD
                   context,
                   PageRouteBuilder(
                     pageBuilder: (context, animation1, animation2) =>
@@ -200,6 +201,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     reverseTransitionDuration: const Duration(seconds: 0),
                   ),
                 );
+=======
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation1, animation2) =>
+                          const RootScreen(),
+                      transitionDuration: const Duration(seconds: 0),
+                      reverseTransitionDuration: const Duration(seconds: 0),
+                    ),
+                  );
+>>>>>>> c1c2972310f87486f27cea98dee4baf8fe42df37
               },
               child: Container(
                 height: 50,
