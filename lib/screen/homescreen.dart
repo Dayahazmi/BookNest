@@ -8,22 +8,30 @@ class Homescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
+    return const Scaffold(
+        appBar: MyAppBar(),
         body: SafeArea(
           child: SingleChildScrollView(
-            child: Center(
-                child: Column(
+            child: Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.all(12.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [SearchForm(), SizedBox(width: 15), MyDropDown()],
-                  ),
-                )
+                Center(
+                    child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SearchForm(),
+                          SizedBox(width: 15),
+                          MyDropDown()
+                        ],
+                      ),
+                    )
+                  ],
+                )),
               ],
-            )),
+            ),
           ),
         ));
   }

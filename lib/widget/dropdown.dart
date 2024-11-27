@@ -21,7 +21,7 @@ class _MyDropDownState extends State<MyDropDown> {
       iconSize: 20, // Remove the default padding between icon and text
       style: const TextStyle(
         color: Colors.black,
-        fontSize: 16,
+        fontSize: 14,
       ),
       onChanged: (String? value) {
         setState(() {

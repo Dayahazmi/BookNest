@@ -47,14 +47,14 @@ class _SplashscreensecState extends State<Splashscreensec> {
       if (kDebugMode) {
         print('Navigating to LoginScreen');
       }
-      Navigator.pushReplacement(
-        context,
-        PageRouteBuilder(
-          pageBuilder: (context, animation1, animation2) => const LoginScreen(),
-          transitionDuration: const Duration(seconds: 0),
-          reverseTransitionDuration: const Duration(seconds: 0),
-        ),
-      );
+      // Navigator.pushReplacement(
+      //   context,
+      //   PageRouteBuilder(
+      //     // pageBuilder: (context, animation1, animation2) => const LoginScreen(),
+      //     transitionDuration: const Duration(seconds: 0),
+      //     reverseTransitionDuration: const Duration(seconds: 0),
+      //   ),
+      // );
     }
   }
 

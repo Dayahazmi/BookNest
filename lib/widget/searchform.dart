@@ -5,12 +5,15 @@ class SearchForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get the screen width
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          width: 225,
+          width: screenWidth * 0.6, // 60% of the screen width
           height: 30,
           decoration: BoxDecoration(
             color: const Color(0xFF7A7A7A),

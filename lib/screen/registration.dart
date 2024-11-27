@@ -36,8 +36,8 @@ class _RegisScreenState extends State<RegisScreen> {
       );
 
       if (response.statusCode == 200) {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => const LoginScreen()));
+        // Navigator.of(context)
+        //     .push(MaterialPageRoute(builder: (context) => const LoginScreen()));
       } else {
         if (kDebugMode) {
           print('Failed with status code: ${response.statusCode}');

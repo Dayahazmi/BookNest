@@ -1,5 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 
+import 'package:booknest_fe/screen/homescreen.dart';
 import 'package:booknest_fe/screen/loginscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,7 +23,7 @@ class _SplashscreenState extends State<Splashscreen>
     Future.delayed(const Duration(seconds: 10), () {
       // ignore: use_build_context_synchronously
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const LoginScreen()));
+          MaterialPageRoute(builder: (_) => const Homescreen()));
     });
   }
 

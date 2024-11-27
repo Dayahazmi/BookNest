@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ResponsiveAppBar extends StatelessWidget implements PreferredSizeWidget {
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double heightFactor; // Percentage of screen height to use for AppBar
 
-  const ResponsiveAppBar(
+  const MyAppBar(
       {super.key, this.heightFactor = 0.15}); // Default: 15% of screen height
 
   @override
